@@ -12,7 +12,7 @@ phases:
       python: 3.11
     commands:
       - echo "Installing dependencies..."
-      - pip install -r simple-python-app/requirements.txt
+      - pip install -r day-14'simple-python-app/requirements.txt
 
   pre_build:
     commands:
@@ -25,7 +25,7 @@ phases:
   build:
     commands:
       - echo "Building Docker image..."
-      - cd simple-python-app/
+      - cd day-14/simple-python-app/
       - docker build -t "ahmadali616/sample-python:latest" .
       - echo "Pushing Docker image to Docker Hub..."
       - docker push "ahmadali616/sample-python:latest"
@@ -37,4 +37,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: simple-python-app
+  base-directory: ../simple-python-app
