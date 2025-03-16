@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
 
-# Pull the Docker image from Docker Hub
-docker pull docker push ahmadali616/sample-python
+# Stop existing container
+docker ps -q --filter "name=sample-python" | grep -q . && docker stop sample-python && docker rm -f sample-python
 
-# Run the Docker image as a container
-docker run -d -p 5000:5000 ahmadali616/sample-python 
+# Remove old images
+docker image prune -af
+ 
